@@ -47,17 +47,17 @@ export class Popover {
 
     const arrow = document.createElement("div");
     arrow.className = "popover-arrow";
-    this.popover.appendChild(arrow);
+    this.popover.append(arrow);
 
     const header = document.createElement("h3");
     header.className = "popover-title";
     header.textContent = this.options.title;
-    this.popover.appendChild(header);
+    this.popover.append(header);
 
     const content = document.createElement("div");
     content.className = "popover-content";
     content.innerHTML = this.options.content;
-    this.popover.appendChild(content);
+    this.popover.append(content);
 
     const closeButton = document.createElement("button");
     closeButton.className = "popover-close";
@@ -66,9 +66,9 @@ export class Popover {
       e.stopPropagation();
       this.hide();
     });
-    this.popover.appendChild(closeButton);
+    this.popover.append(closeButton);
 
-    document.body.appendChild(this.popover);
+    document.body.append(this.popover);
   }
 
   _calculatePosition() {

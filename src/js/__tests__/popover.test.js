@@ -7,7 +7,7 @@ describe("Popover Widget", () => {
     // Создаем тестовый элемент
     element = document.createElement("button");
     element.id = "test-popover";
-    document.body.appendChild(element);
+    document.body.append(element);
 
     // Инициируем popover
     popoverInstance = new Popover(element, {

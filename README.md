@@ -1,5 +1,5 @@
 
-# 📋 Popover forms
+# 🖥️ Popover forms
 
 [![Build Status](https://github.com/gushchinvadim/forms/actions/workflows/web.yml/badge.svg)](https://github.com/gushchinvadim/forms/actions)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-deployed-success)](https://gushchinvadim.github.io/forms/)
