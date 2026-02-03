@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #031043 0%, #74bee8 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: #333;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  color: #031043;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.btn {
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Popover стили */
+.popover {
+  position: fixed; /* ← ЭТО ОБЯЗАТЕЛЬНО */
+  z-index: 10000;
+  max-width: 280px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  display: none;
+}
+
+.popover-arrow {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid white;
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.popover-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 20px 8px 0;
+  color: #333;
+  padding: 6px 0;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.popover-content {
+  padding: 8px 0;
+  color: #666;
+  line-height: 1.4;
+  font-size: 13px;
+}
+
+.popover-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: #999;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.popover-close:hover {
+  background: #f0f0f0;
+  color: #333;
+  transform: scale(1.1);
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}

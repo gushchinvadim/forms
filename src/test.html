@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popover</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+    
+    .btn {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .popover {
+      position: absolute;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      display: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <button id="popover-trigger" class="btn">Click to toggle popover</button>
+  
+  <script type="module">
+    // Простой поповер
+    const button = document.getElementById('popover-trigger');
+    const popover = document.createElement('div');
+    popover.className = 'popover';
+    popover.innerHTML = `
+      <strong>Popover title</strong>
+      <p>And here's some amazing content.</p>
+    `;
+    document.body.appendChild(popover);
+    
+    let isVisible = false;
+    
+    button.addEventListener('click', (e) => {
+      e.stopPropagation();
+      
+      if (isVisible) {
+        popover.style.display = 'none';
+        isVisible = false;
+      } else {
+        // Позиционируем над кнопкой
+        const rect = button.getBoundingClientRect();
+        popover.style.left = (rect.left + rect.width / 2 - 100) + 'px'; // 100 = примерная половина ширины поповера
+        popover.style.top = (rect.top - 60) + 'px'; // 60 = высота поповера + отступ
+        popover.style.display = 'block';
+        isVisible = true;
+      }
+    });
+    
+    // Закрытие при клике вне
+    document.addEventListener('click', (e) => {
+      if (isVisible && !popover.contains(e.target) && e.target !== button) {
+        popover.style.display = 'none';
+        isVisible = false;
+      }
+    });
+  </script>
+</body>
+</html>
